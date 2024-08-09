@@ -50,6 +50,23 @@ main {
     background-color: #45a049;
 }
 
+/* Nút sắp xếp theo tên */
+#sort-btn {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#sort-btn:hover {
+    background-color: #0056b3;
+}
+
 /* Phần danh sách sinh viên */
 .student-list {
     margin-bottom: 20px;
@@ -111,6 +128,55 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left, .footer-right {
+    width: 45%;
+}
+
+.footer-left h3, .footer-right h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-left p, .footer-right p {
+    margin: 5px 0;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons li img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+}
+
+.social-icons li a:hover {
+    opacity: 0.7;
+}
+
 /* Responsive Design */
 
 /* Max-width: 320px */
@@ -137,6 +203,17 @@ button[type="submit"]:hover {
 
     form {
         gap: 8px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
     }
 }
 
@@ -165,6 +242,17 @@ button[type="submit"]:hover {
     form {
         gap: 8px;
     }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }
 
 /* Max-width: 600px */
@@ -191,6 +279,17 @@ button[type="submit"]:hover {
 
     form {
         gap: 8px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
     }
 }
 
@@ -219,20 +318,16 @@ button[type="submit"]:hover {
     form {
         gap: 10px;
     }
-}
-/* Nút sắp xếp theo tên */
-#sort-btn {
-    margin: 10px 0;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }
 
-#sort-btn:hover {
-    background-color: #0056b3;
-}

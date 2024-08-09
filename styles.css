@@ -1,0 +1,238 @@
+/* Cài đặt chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0b1783;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    background-image: url('https://example.com/vietnamese-background.jpg'); /* Thay đổi URL hình ảnh */
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Phần tìm kiếm */
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #45a049;
+}
+
+/* Phần danh sách sinh viên */
+.student-list {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Phần thêm sinh viên */
+.add-student {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], 
+input[type="date"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+
+/* Max-width: 320px */
+@media (max-width: 320px) {
+    .search-container {
+        flex-direction: column;
+    }
+
+    #search-input {
+        margin-bottom: 10px;
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.7em;
+    }
+
+    .add-student {
+        padding: 10px;
+    }
+
+    form {
+        gap: 8px;
+    }
+}
+
+/* Max-width: 480px */
+@media (max-width: 480px) {
+    .search-container {
+        flex-direction: column;
+    }
+
+    #search-input {
+        margin-bottom: 10px;
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.8em;
+    }
+
+    .add-student {
+        padding: 15px;
+    }
+
+    form {
+        gap: 8px;
+    }
+}
+
+/* Max-width: 600px */
+@media (max-width: 600px) {
+    .search-container {
+        flex-direction: column;
+    }
+
+    #search-input {
+        margin-bottom: 10px;
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    .add-student {
+        padding: 15px;
+    }
+
+    form {
+        gap: 8px;
+    }
+}
+
+/* Max-width: 800px */
+@media (max-width: 800px) {
+    .search-container {
+        flex-direction: column;
+    }
+
+    #search-input {
+        margin-bottom: 10px;
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    table {
+        font-size: 1em;
+    }
+
+    .add-student {
+        padding: 15px;
+    }
+
+    form {
+        gap: 10px;
+    }
+}
+/* Nút sắp xếp theo tên */
+#sort-btn {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#sort-btn:hover {
+    background-color: #0056b3;
+}

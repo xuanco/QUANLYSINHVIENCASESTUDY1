@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Quản Lý Sinh Viên</h1>
+    </header>
+    <main>
+        <section class="student-list">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Tìm kiếm theo tên,lớp hoặc mã số sinh viên">
+                <button id="search-btn">Tìm kiếm</button>
+                <!-- Thêm nút sắp xếp -->
+                <button id="sort-btn">Sắp Xếp Theo Tên</button>
+            </div>
+            <h2>Danh Sách Sinh Viên</h2>
+            <table id="student-table">
+                <thead>
+                    <tr>
+                        <th>Hình Ảnh</th>
+                        <th>Mã Sinh Viên</th>
+                        <th>Tên Sinh Viên</th>
+                        <th>Ngày Sinh</th>
+                        <th>Lớp</th>
+                        <th>Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu sinh viên sẽ được thêm vào đây -->
+                </tbody>
+            </table>
+        </section>
+        <section class="add-student">
+            <h2>Thêm Sinh Viên</h2>
+            <form id="student-form">
+                <label for="student-id">Mã Sinh Viên:</label>
+                <input type="text" id="student-id" name="student-id" required>
+                
+                <label for="student-name">Tên Sinh Viên:</label>
+                <input type="text" id="student-name" name="student-name" required>
+                
+                <label for="student-dob">Ngày Sinh:</label>
+                <input type="date" id="student-dob" name="student-dob" required>
+                
+                <label for="student-class">Lớp:</label>
+                <input type="text" id="student-class" name="student-class" required>
+                
+                <label for="student-image">URL Hình Ảnh:</label>
+                <input type="text" id="student-image" name="student-image" required>
+                
+                <button type="submit">Thêm Sinh Viên</button>
+            </form>
+        </section>
+    </main>
+    <!-- Nhập tệp JavaScript mô-đun -->
+    <script type="module" src="studentManager.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="student.js"></script>
+</body>
+</html>

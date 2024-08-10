@@ -68,8 +68,8 @@ export class StudentManager {
 
     sortStudentsByName() {
         this.students.sort((a, b) => {
-            const nameA = a.name.toUpperCase();
-            const nameB = b.name.toUpperCase();
+            const nameA = a.name.split(' ').pop().toUpperCase(); // Lấy họ của sinh viên A
+            const nameB = b.name.split(' ').pop().toUpperCase(); // Lấy họ của sinh viên B
             return nameA.localeCompare(nameB);
         });
         this.render();

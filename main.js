@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const students = [
         new Student('20247011', "Tạ Thị Thùy", '07/02/2005', '12KT1', 'images/anhthe1.jpg'),
         new Student('20247012', 'Đàm Kiều Trinh', '05/02/2005', '12KT2', 'images/anhthe2.jpg'),
-        new Student('20247023', 'Bùi Thị Ánh', '22/01/2005', '12KT3', 'images/anhthe3.jpg'),
-        new Student('20247025', 'Bùi Tấn Tài', '22/03/2005', '12KT2', 'images/anhthe4.jpg')
+        new Student('20247023', 'Phan Thị Ánh', '22/01/2005', '12KT3', 'images/anhthe3.jpg'),
+        new Student('20247025', 'Bùi Tấn Tài', '22/03/2005', '12KT2', 'images/anhthe4.jpg'),
+        new Student('20247025', 'Bùi Nhật Kim Anh', '22/07/2005', '12KT1', 'images/anhthe5.jpg')
     ];
     students.forEach(student => studentManager.addStudent(student));
 

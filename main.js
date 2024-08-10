@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
         studentManager.addStudent(student);
     });
 
+    // Khởi tạo sinh viên mặc định
+    const students = [
+        new Student('20247011', "Tạ Thị Thùy", '07/02/2005', '12KT1', 'images/anhthe1.jpg'),
+        new Student('20247012', 'Đàm Kiều Trinh', '05/02/2005', '12KT2', 'images/anhthe2.jpg'),
+        new Student('20247023', 'Bùi Thị Ánh', '22/01/2005', '12KT3', 'images/anhthe3.jpg'),
+        new Student('20247025', 'Bùi Tấn Tài', '22/03/2005', '12KT2', 'images/anhthe4.jpg')
+    ];
+    students.forEach(student => studentManager.addStudent(student));
+
     // Tạo sinh viên ngẫu nhiên nếu cần
     // studentManager.generateRandomStudents(3);
 });
@@ -71,6 +80,11 @@ document.querySelector('#student-table').addEventListener('click', function(even
 document.getElementById('search-btn').addEventListener('click', () => {
     const query = document.getElementById('search-input').value;
     studentManager.searchStudents(query);
+});
+
+// Xử lý sự kiện sắp xếp danh sách sinh viên
+document.getElementById('sort-btn').addEventListener('click', () => {
+    studentManager.sortStudentsByName();
 });
 
 // Lưu dữ liệu vào Local Storage

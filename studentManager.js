@@ -23,10 +23,7 @@ export class StudentManager {
     updateStudent(studentId, updatedData) {
         const student = this.students.find(student => student.id === studentId);
         if (student) {
-            student.name = updatedData.name || student.name;
-            student.dob = updatedData.dob || student.dob;
-            student.imageUrl = updatedData.imageUrl || student.imageUrl;
-            student.id = updatedData.id || student.id;
+            student.updateInfo(updatedData);
             this.sortStudentsByName(); // Sắp xếp sau khi cập nhật thông tin
             this.render();
         }

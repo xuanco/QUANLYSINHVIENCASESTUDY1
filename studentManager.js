@@ -1,31 +1,32 @@
-import { Student } from './student.js';
-
-const maleNames = ['Nguyễn Văn A', 'Trần Văn B', 'Lê Văn C', 'Phạm Văn D'];
-const femaleNames = ['Nguyễn Thị E', 'Trần Thị F', 'Lê Thị G', 'Phạm Thị H'];
-const classes = ['KT01', 'KT02', 'KT03', 'KT04'];
-
 export class StudentManager {
     constructor() {
         this.students = [];
     }
 
     addStudent(student) {
+        if (this.isDuplicateId(student.id)) {
+            this.showNotification('Mã sinh viên đã tồn tại!', 'error');
+            return;
+        }
         this.students.push(student);
-        this.sortStudentsByName(); // Sắp xếp sau khi thêm sinh viên
+        this.sortStudentsByName();
         this.render();
+        this.showNotification('Thêm sinh viên thành công!');
     }
 
     removeStudent(studentId) {
         this.students = this.students.filter(student => student.id !== studentId);
         this.render();
+        this.showNotification('Xóa sinh viên thành công!');
     }
 
     updateStudent(studentId, updatedData) {
         const student = this.students.find(student => student.id === studentId);
         if (student) {
             student.updateInfo(updatedData);
-            this.sortStudentsByName(); // Sắp xếp sau khi cập nhật thông tin
+            this.sortStudentsByName();
             this.render();
+            this.showNotification('Cập nhật thông tin sinh viên thành công!');
         }
     }
 
@@ -49,18 +50,13 @@ export class StudentManager {
     generateRandomStudents(count) {
         for (let i = 0; i < count; i++) {
             const id = `SV${(Math.random() * 10000).toFixed(0).padStart(4, '0')}`;
-            
             const isMale = Math.random() > 0.5;
             const name = isMale ? 
                 maleNames[Math.floor(Math.random() * maleNames.length)] : 
                 femaleNames[Math.floor(Math.random() * femaleNames.length)];
-            
             const dob = new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString().split('T')[0];
-            
             const studentClass = classes[Math.floor(Math.random() * classes.length)];
-            
             const imageUrl = `https://randomuser.me/api/portraits/lego/${Math.floor(Math.random() * 10)}.jpg`;
-            
             const student = new Student(id, name, dob, studentClass, imageUrl);
             this.addStudent(student);
         }
@@ -68,10 +64,26 @@ export class StudentManager {
 
     sortStudentsByName() {
         this.students.sort((a, b) => {
-            const nameA = a.name.split(' ').pop().toUpperCase(); // Lấy họ của sinh viên A
-            const nameB = b.name.split(' ').pop().toUpperCase(); // Lấy họ của sinh viên B
+            const nameA = a.name.split(' ').pop().toUpperCase(); 
+            const nameB = b.name.split(' ').pop().toUpperCase(); 
             return nameA.localeCompare(nameB);
         });
         this.render();
+    }
+
+    isDuplicateId(studentId) {
+        return this.students.some(student => student.id === studentId);
+    }
+
+    showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
     }
 }

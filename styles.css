@@ -3,21 +3,23 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Đảm bảo kích thước chính xác cho các phần tử */
 }
 
 header {
     background-color: #0b1783;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     background-image: url('https://example.com/vietnamese-background.jpg'); /* Thay đổi URL hình ảnh */
     background-size: cover;
     background-position: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng để tạo hiệu ứng nổi bật */
 }
 
 h1 {
     margin: 0;
+    font-size: 2em;
 }
 
 main {
@@ -35,6 +37,8 @@ main {
     flex: 1;
     padding: 10px;
     font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 #search-btn {
@@ -43,6 +47,7 @@ main {
     background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
@@ -60,11 +65,12 @@ main {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #sort-btn:hover {
     background-color: #0056b3;
+    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
 }
 
 /* Phần danh sách sinh viên */
@@ -75,11 +81,12 @@ main {
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
 }
 
@@ -93,7 +100,7 @@ th {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -122,6 +129,7 @@ button[type="submit"] {
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 button[type="submit"]:hover {
@@ -133,6 +141,8 @@ footer {
     background-color: #333;
     color: white;
     padding: 20px 0;
+    position: relative;
+    clear: both;
 }
 
 .footer-container {
@@ -142,6 +152,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .footer-left, .footer-right {
@@ -173,8 +184,45 @@ footer {
     filter: invert(100%);
 }
 
+.social-icons li a {
+    color: white;
+    text-decoration: none;
+}
+
 .social-icons li a:hover {
     opacity: 0.7;
+}
+
+/* Nút quay lên đầu trang */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#scroll-to-top:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+#scroll-to-top:before {
+    content: "↑";
+    font-size: 28px;
 }
 
 /* Responsive Design */
@@ -247,8 +295,10 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+
     .footer-left, .footer-right {
         width: 100%;
         text-align: center;
         margin-bottom: 20px;
-    }}
+    }
+}

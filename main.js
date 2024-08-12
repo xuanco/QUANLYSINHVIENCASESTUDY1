@@ -3,23 +3,24 @@ import { Student } from './student.js';
 
 const studentManager = new StudentManager();
 
-// Hàm để chuyển đổi định dạng ngày từ mm/dd/yyyy sang mm-dd-yyyy và ngược lại
+// Hàm để chuyển đổi định dạng ngày từ mm/dd/yyyy hoặc mm-dd-yyyy sang dd/mm/yyyy và ngược lại
 function convertDateFormat(dateStr, toDateFormat = true) {
     if (toDateFormat) {
-        // Chuyển đổi từ mm/dd/yyyy sang mm-dd-yyyy
-        const parts = dateStr.split('/');
+        // Chuyển đổi từ mm/dd/yyyy hoặc mm-dd-yyyy sang dd/mm/yyyy
+        const parts = dateStr.includes('/') ? dateStr.split('/') : dateStr.split('-');
         if (parts.length === 3) {
-            return `${parts[1]}-${parts[0]}-${parts[2]}`;
+            return `${parts[1]}/${parts[0]}/${parts[2]}`;
         }
     } else {
-        // Chuyển đổi từ mm-dd-yyyy sang mm/dd/yyyy
-        const parts = dateStr.split('-');
+        // Chuyển đổi từ dd/mm/yyyy sang mm/dd/yyyy hoặc mm-dd-yyyy
+        const parts = dateStr.split('/');
         if (parts.length === 3) {
-            return `${parts[1]}/${parts[2]}/${parts[0]}`;
+            return `${parts[1]}/${parts[0]}/${parts[2]}`;
         }
     }
     return dateStr; // Trả về ngày gốc nếu không đúng định dạng
 }
+
 
 // Tải dữ liệu từ Local Storage khi trang được tải
 document.addEventListener('DOMContentLoaded', () => {

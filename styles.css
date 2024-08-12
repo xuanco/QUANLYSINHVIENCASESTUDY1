@@ -1,6 +1,9 @@
-*, *::before, *::after {
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+
 /* Cài đặt chung */
 body {
     font-family: Arial, sans-serif;

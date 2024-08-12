@@ -19,8 +19,26 @@
                 <li><a href="#">Tuyển Sinh</a></li>
                 <li><a href="#">Thư Viện</a></li>
                 <li><a href="#">Diễn Đàn</a></li>
-                <li><a href="#">Đăng Nhập</a></li>
+                <li><a href="#" id="loginBtn">Đăng Nhập</a>
+                     <!-- Popup đăng nhập -->
+                    <div id="loginPopup" class="popup">
+                        <div class="popup-content">
+                            <span class="close">&times;</span>
+                            <h2>Đăng Nhập</h2>
+                            <form id="loginForm">
+                                <label for="username">Tên đăng nhập:</label>
+                                <input type="text" id="username" name="username" required>
+                                <br>
+                                <label for="password">Mật khẩu:</label>
+                                <input type="password" id="password" name="password" required>
+                                <br>
+                                <button type="submit">Đăng Nhập</button>
+                            </form>
+                    </div>
+                </li>
             </ul>
+           
+    </div>
         </nav>
     </header>
     <main>
@@ -92,5 +110,6 @@
     <script type="module" src="studentManager.js"></script>
     <script type="module" src="main.js"></script>
     <script type="module" src="student.js"></script>
+    
 </body>
 </html>

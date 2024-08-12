@@ -3,29 +3,31 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background-color: #F5F5F5; /* Màu nền xám nhạt */
+    box-sizing: border-box; /* Đảm bảo kích thước chính xác cho các phần tử */
 }
 
 header {
-    background-color: #1E90FF; /* Màu xanh đậm */
-    color: white;
+    background-color: #007bff; /* Màu xanh đậm (Blue color) */
+    color: rgb(3, 0, 0);
     text-align: center;
     padding: 20px 0;
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* Ensures the image covers the entire header */
+    background-position: center; /* Centers the image */
+    background-image: url('images/hinhnen.jpg'); /* Path to your background image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 3em;
+    color: orange; /* Màu chữ nổi bật */
+    font-family: 'Pacifico', cursive; /* Font chữ kiểu viết tay */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Bóng chữ để làm nổi bật */
+    letter-spacing: 1px; /* Khoảng cách giữa các ký tự */
 }
-
 nav {
     margin-top: 10px;
 }
-
 .navbar {
     list-style: none;
     padding: 0;
@@ -74,7 +76,7 @@ main {
 #search-btn {
     padding: 10px 20px;
     font-size: 1em;
-    background-color: #FF8C00; /* Màu cam */
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;
@@ -82,14 +84,14 @@ main {
 }
 
 #search-btn:hover {
-    background-color: #FFA500;
+    background-color: #45a049;
 }
 
 /* Nút sắp xếp theo tên */
 #sort-btn {
     margin: 10px 0;
     padding: 10px 20px;
-    background-color: #FF8C00;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -99,8 +101,8 @@ main {
 }
 
 #sort-btn:hover {
-    background-color: #FFA500;
-    transform: scale(1.05);
+    background-color: #0056b3;
+    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
 }
 
 /* Phần danh sách sinh viên */
@@ -121,7 +123,7 @@ th, td {
 }
 
 th {
-    background-color: #1E90FF;
+    background-color: #4CAF50;
     color: white;
 }
 
@@ -154,7 +156,7 @@ input[type="date"] {
 button[type="submit"] {
     padding: 10px;
     font-size: 1em;
-    background-color: #FF8C00;
+    background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
@@ -163,7 +165,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #FFA500;
+    background-color: #45a049;
 }
 
 /* Footer */
@@ -182,6 +184,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .footer-left, .footer-right {
@@ -189,74 +192,74 @@ footer {
 }
 
 .footer-left h3, .footer-right h3 {
-    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-.footer-right ul {
+.footer-left p, .footer-right p {
+    margin: 5px 0;
+}
+
+.social-icons {
     list-style: none;
     padding: 0;
 }
 
-.footer-right ul li {
-    margin-bottom: 10px;
-}
-
-.footer-right ul li a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.footer-right ul li a img {
-    width: 24px; /* Điều chỉnh kích thước hình ảnh */
-    height: auto;
+.social-icons li {
+    display: inline-block;
     margin-right: 10px;
 }
 
-.footer-right ul li a span {
-    font-size: 14px; /* Điều chỉnh kích thước văn bản nếu cần */
+.social-icons li img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
 }
 
-/* Nút cuộn lên đầu trang */
+.social-icons li a {
+    color: white;
+    text-decoration: none;
+}
+
+.social-icons li a:hover {
+    opacity: 0.7;
+}
+
+/* Nút quay lên đầu trang */
 #scroll-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #FF8C00;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px;
     border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
     cursor: pointer;
     display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #scroll-to-top:hover {
-    background-color: #FFA500;
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+#scroll-to-top:before {
+    content: "↑";
+    font-size: 28px;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .footer-left, .footer-right {
-        width: 100%;
-        text-align: center;
-    }
-
-    .footer-right ul {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }
-}
-/* Responsive Design */
-
-/* For screens 320px wide */
+/* Max-width: 320px */
 @media (max-width: 320px) {
     header {
         padding: 10px 0;
@@ -265,7 +268,6 @@ footer {
     h1 {
         font-size: 1.5em;
     }
-
     .navbar {
         flex-direction: column;
         gap: 5px;
@@ -275,32 +277,28 @@ footer {
         padding: 8px 15px;
         font-size: 0.9em;
     }
-
     .search-container {
         flex-direction: column;
-        gap: 5px;
     }
 
     #search-input {
-        width: 100%;
-        font-size: 0.9em;
+        margin-bottom: 10px;
     }
 
     #search-btn {
         width: 100%;
-        font-size: 0.9em;
     }
 
     table {
-        font-size: 0.9em;
+        font-size: 0.7em;
     }
 
     .add-student {
-        padding: 15px;
+        padding: 10px;
     }
 
-    button[type="submit"] {
-        font-size: 0.9em;
+    form {
+        gap: 8px;
     }
 
     .footer-container {
@@ -311,26 +309,11 @@ footer {
     .footer-left, .footer-right {
         width: 100%;
         text-align: center;
-    }
-
-    .footer-right ul {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        align-items: center;
-    }
-
-    .footer-right ul li a {
-        font-size: 0.9em;
-    }
-
-    #scroll-to-top {
-        bottom: 10px;
-        right: 10px;
+        margin-bottom: 20px;
     }
 }
 
-/* For screens 480px wide */
+/* Max-width: 480px */
 @media (max-width: 480px) {
     header {
         padding: 15px 0;
@@ -349,32 +332,28 @@ footer {
         padding: 10px 20px;
         font-size: 1em;
     }
-
     .search-container {
         flex-direction: column;
-        gap: 10px;
     }
 
     #search-input {
-        width: 100%;
-        font-size: 1em;
+        margin-bottom: 10px;
     }
 
     #search-btn {
         width: 100%;
-        font-size: 1em;
     }
 
     table {
-        font-size: 1em;
+        font-size: 0.8em;
     }
 
     .add-student {
-        padding: 20px;
+        padding: 15px;
     }
 
-    button[type="submit"] {
-        font-size: 1em;
+    form {
+        gap: 8px;
     }
 
     .footer-container {
@@ -385,95 +364,6 @@ footer {
     .footer-left, .footer-right {
         width: 100%;
         text-align: center;
-    }
-
-    .footer-right ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .footer-right ul li a {
-        font-size: 1em;
-    }
-
-    #scroll-to-top {
-        bottom: 15px;
-        right: 15px;
+        margin-bottom: 20px;
     }
 }
-
-@media (max-width: 600px) {
-    header {
-        padding: 20px 0;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .navbar li a {
-        padding: 12px 25px;
-        font-size: 1.1em;
-    }
-
-    .search-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    #search-input {
-        width: 100%;
-        font-size: 1.1em;
-    }
-
-    #search-btn {
-        width: 100%;
-        font-size: 1.1em;
-    }
-
-    table {
-        font-size: 1.1em;
-    }
-
-    .add-student {
-        padding: 25px;
-    }
-
-    button[type="submit"] {
-        font-size: 1.1em;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-left, .footer-right {
-        width: 100%;
-        text-align: center;
-    }
-
-    .footer-right ul {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .footer-right ul li a {
-        font-size: 1.1em;
-    }
-
-    #scroll-to-top {
-        bottom: 20px;
-        right: 20px;
-    }
-}
-

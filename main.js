@@ -21,7 +21,6 @@ function convertDateFormat(dateStr, toDateFormat = true) {
     return dateStr; // Trả về ngày gốc nếu không đúng định dạng
 }
 
-
 // Tải dữ liệu từ Local Storage khi trang được tải
 document.addEventListener('DOMContentLoaded', () => {
     const storedStudents = JSON.parse(localStorage.getItem('students')) || [];
@@ -36,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Student('20247012', 'Đàm Kiều Trinh', convertDateFormat('05/02/2005'), '12KT2', 'images/anhthe2.jpg'),
         new Student('20247023', 'Phan Thị Ánh', convertDateFormat('22/01/2005'), '12KT3', 'images/anhthe3.jpg'),
         new Student('20247022', 'Bùi Tấn Tài', convertDateFormat('22/03/2005'), '12KT2', 'images/anhthe4.jpg'),
+        new Student('20247039', 'Đoàn Trí Hưng', convertDateFormat('12/08/2005'), '12KT3', 'images/anhthe6.jpg'),
         new Student('20247025', 'Bùi Nhật Kim Anh', convertDateFormat('22/07/2005'), '12KT1', 'images/anhthe5.jpg')
     ];
     students.forEach(student => studentManager.addStudent(student));
@@ -105,8 +105,18 @@ document.getElementById('search-input').addEventListener('input', () => {
 });
 
 // Xử lý sự kiện sắp xếp danh sách sinh viên
-document.getElementById('sort-btn').addEventListener('click', () => {
+document.getElementById('sort-name-btn').addEventListener('click', () => {
     studentManager.sortStudentsByName();
+});
+
+document.getElementById('sort-class-select').addEventListener('change', (event) => {
+    const selectedClass = event.target.value;
+    if (selectedClass) {
+        const filteredStudents = studentManager.students.filter(student => student.studentClass === selectedClass);
+        studentManager.render(filteredStudents);
+    } else {
+        studentManager.render(); // Hiển thị tất cả sinh viên nếu không chọn lớp
+    }
 });
 
 // Xử lý sự kiện cuộn trang
@@ -135,6 +145,7 @@ function saveToLocalStorage() {
     }));
     localStorage.setItem('students', JSON.stringify(students));
 }
+
 // Lấy các phần tử cần thiết
 const loginBtn = document.getElementById('loginBtn');
 const loginPopup = document.getElementById('loginPopup');
@@ -155,4 +166,19 @@ window.addEventListener('click', (event) => {
     if (event.target === loginPopup) {
         loginPopup.style.display = 'none';
     }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('sidebar-toggle'); // Đổi tên từ 'toggle-sidebar' thành 'sidebar-toggle'
+    const sidebar = document.querySelector('.sidebar');
+
+    toggleButton.addEventListener('click', function() {
+        sidebar.classList.toggle('show');
+    });
+
+    // Đóng thanh bên khi người dùng nhấp ra ngoài thanh bên (nếu cần)
+    document.addEventListener('click', function(event) {
+        if (!sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
+            sidebar.classList.remove('show');
+        }
+    });
 });

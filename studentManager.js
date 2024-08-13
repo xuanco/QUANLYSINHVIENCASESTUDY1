@@ -9,7 +9,7 @@ export class StudentManager {
             return;
         }
         this.students.push(student);
-        this.sortStudentsByName();
+        this.sortStudentsByName(); // Sắp xếp theo tên sau khi thêm
         this.render();
         this.showNotification('Thêm sinh viên thành công!');
     }
@@ -24,7 +24,7 @@ export class StudentManager {
         const student = this.students.find(student => student.id === studentId);
         if (student) {
             student.updateInfo(updatedData);
-            this.sortStudentsByName();
+            this.sortStudentsByName(); // Sắp xếp theo tên sau khi cập nhật
             this.render();
             this.showNotification('Cập nhật thông tin sinh viên thành công!');
         }
@@ -71,6 +71,15 @@ export class StudentManager {
         this.render();
     }
 
+    sortStudentsByClass() {
+        this.students.sort((a, b) => {
+            const classA = a.studentClass.toUpperCase();
+            const classB = b.studentClass.toUpperCase();
+            return classA.localeCompare(classB);
+        });
+        this.render();
+    }
+
     isDuplicateId(studentId) {
         return this.students.some(student => student.id === studentId);
     }
@@ -87,3 +96,4 @@ export class StudentManager {
         }, 3000);
     }
 }
+

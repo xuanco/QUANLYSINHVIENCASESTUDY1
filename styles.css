@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +11,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Đảm bảo kích thước chính xác cho các phần tử */
+    /* Đảm bảo nội dung không bị ẩn dưới header cố định */
+    padding-top: 170px; /* Thay đổi giá trị này tùy thuộc vào chiều cao của header */
 }
 
 header {
@@ -31,12 +34,15 @@ header {
 h1 {
     margin: 0;
     font-size: 3em;
-    color: orange; /* Màu chữ nổi bật */
-    font-family: 'Pacifico', cursive; /* Font chữ kiểu viết tay */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Bóng chữ để làm nổi bật */
-    letter-spacing: 1px; /* Khoảng cách giữa các ký tự */
+    font-family: 'Pacifico', cursive;
+    animation: colorChange 5s infinite; /* Hiệu ứng đổi màu */
+    letter-spacing: 1px;
 }
-
+@keyframes colorChange {
+    0% { color: #ff8C00; } /* Màu cam */
+    50% { color: #ff6347; } /* Màu đỏ */
+    100% { color: #ff8C00; } /* Màu cam */
+}
 /* Phần điều hướng (navbar) */
 nav {
     margin-top: 10px;
@@ -70,11 +76,82 @@ nav {
     background-color: #FFD700; /* Màu vàng khi hover */
     color: #333; /* Màu chữ tối khi hover */
 }
-
-/* Đảm bảo nội dung không bị ẩn dưới header cố định */
-body {
-    padding-top: 170px; /* Thay đổi giá trị này tùy thuộc vào chiều cao của header */
+/* Thanh bên */
+.sidebar {
+    width: 250px; /* Chiều rộng của thanh bên */
+    background-color: #f4f4f4; /* Màu nền của thanh bên */
+    padding: 50px 20px 20px; /* Thay đổi khoảng cách trên cùng để hạ thấp nội dung */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Bóng để tạo hiệu ứng nổi */
+    position: fixed; /* Đặt thanh bên cố định */
+    top: 0; /* Ghim lên đầu trang */
+    left: -250px; /* Ẩn thanh bên ra ngoài màn hình */
+    height: 100%; /* Chiều cao của thanh bên bằng với chiều cao của trang */
+    transition: left 0.3s ease; /* Hiệu ứng chuyển đổi khi hiển thị/ẩn */
+    z-index: 1000; /* Đảm bảo thanh bên nằm trên các phần tử khác */
 }
+
+.sidebar.show {
+    left: 0; /* Hiển thị thanh bên khi có lớp .show */
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff; /* Màu liên kết */
+    font-weight: bold;
+    display: block; /* Đặt các liên kết thành các khối */
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu nền và chữ */
+}
+
+.sidebar ul li a:hover {
+    background-color: #007bff; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+}
+
+
+/* Nút mở/đóng thanh bên */
+#sidebar-toggle {
+    position: fixed;
+    top: 5px; /* Khoảng cách từ đỉnh màn hình */
+    left: 20px; /* Khoảng cách từ cạnh trái màn hình */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001; /* Đặt nút trên thanh bên */
+    font-size: 24px; /* Kích thước biểu tượng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng cho nút */
+    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển màu nền và phóng to khi hover */
+}
+
+#sidebar-toggle:hover {
+    background-color: #0056b3;
+    transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
+}
+
+/* phan khac */
 main {
     padding: 20px;
 }
@@ -108,22 +185,48 @@ main {
     background-color: #45a049;
 }
 
-/* Nút sắp xếp theo tên */
-#sort-btn {
-    margin: 10px 0;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s, transform 0.3s;
+/* Cả nút sắp xếp theo tên và dropdown sắp xếp theo lớp */
+.sort-container {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-bottom: 20px;
 }
 
-#sort-btn:hover {
+#sort-name-btn, #sort-class-select {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-right: 10px; /* Khoảng cách giữa nút và dropdown */
+    text-align: center; /* Căn giữa chữ trong phần tử */
+    height: 40px; /* Đảm bảo chiều cao đồng nhất */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước */
+}
+
+/* Nút sắp xếp theo tên khi hover */
+#sort-name-btn:hover {
     background-color: #0056b3;
     transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+}
+
+/* Dropdown sắp xếp theo lớp khi hover */
+#sort-class-select {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #ddd; /* Đảm bảo viền dropdown giống như nút */
+    height: 40px; /* Đảm bảo chiều cao đồng nhất với nút */
+    width: 200px; /* Đảm bảo chiều rộng giống như nút */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước */
+}
+
+/* Cải thiện hình ảnh của dropdown để đồng nhất */
+#sort-class-select option {
+    background-color: #fff;
+    color: #000;
 }
 
 /* Phần danh sách sinh viên */
@@ -148,6 +251,15 @@ th {
     color: white;
 }
 
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Màu nền cho các hàng chẵn */
+}
+
+tbody tr:hover {
+    background-color: #ddd; /* Màu nền khi di chuột qua hàng */
+}
+
+
 /* Phần thêm sinh viên */
 .add-student {
     background-color: #f9f9f9;
@@ -167,11 +279,13 @@ label {
 }
 
 input[type="text"], 
-input[type="date"] {
+input[type="date"], 
+select {
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ddd;
     border-radius: 4px;
+    width: 100%; /* Ensures all inputs and select take full width */
 }
 
 button[type="submit"] {
@@ -188,6 +302,7 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45a049;
 }
+
 
 
 /* Footer */

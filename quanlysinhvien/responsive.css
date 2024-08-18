@@ -1,0 +1,77 @@
+/* Kiểu cho màn hình có độ rộng tối đa 320px */
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 2em; /* Điều chỉnh kích thước chữ của header cho màn hình nhỏ */
+    }
+    
+    .navbar {
+        flex-direction: column; /* Xếp các mục của navbar theo chiều dọc */
+        gap: 10px; /* Giảm khoảng cách giữa các mục trong navbar */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar chiếm toàn bộ chiều rộng */
+    }
+
+    #sidebar-toggle {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+    
+    /* Điều chỉnh các phần tử khác nếu cần cho màn hình nhỏ */
+}
+
+/* Kiểu cho màn hình có độ rộng tối đa 600px */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2.5em; /* Điều chỉnh kích thước chữ của header */
+    }
+    
+    .navbar {
+        flex-direction: column; /* Xếp các mục của navbar theo chiều dọc */
+        gap: 15px; /* Điều chỉnh khoảng cách giữa các mục trong navbar */
+    }
+
+    .sidebar {
+        width: 80%; /* Chiều rộng của sidebar cho màn hình trung bình */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Xếp các mục của footer theo chiều dọc */
+        align-items: center; /* Căn giữa các mục trong footer */
+    }
+
+    .footer-left, .footer-right {
+        width: 100%; /* Các mục trong footer chiếm toàn bộ chiều rộng */
+    }
+    
+    /* Điều chỉnh các phần tử khác nếu cần */
+}
+
+/* Kiểu cho màn hình có độ rộng tối đa 768px */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.8em; /* Tăng nhẹ kích thước chữ của header */
+    }
+
+    .navbar {
+        flex-direction: row; /* Giữ các mục của navbar theo hàng ngang */
+        gap: 15px; /* Điều chỉnh khoảng cách giữa các mục trong navbar */
+    }
+
+    .sidebar {
+        width: 60%; /* Điều chỉnh chiều rộng của sidebar */
+    }
+
+    .footer-container {
+        flex-direction: row; /* Giữ các mục trong footer theo hàng ngang */
+        justify-content: space-between; /* Giãn các mục trong footer */
+    }
+
+    .footer-left, .footer-right {
+        width: 45%; /* Điều chỉnh chiều rộng của các mục trong footer */
+    }
+    
+    /* Điều chỉnh các phần tử khác nếu cần */
+}

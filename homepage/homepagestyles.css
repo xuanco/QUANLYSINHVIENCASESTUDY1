@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cài đặt chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Đảm bảo kích thước chính xác cho các phần tử */
+    /* Đảm bảo nội dung không bị ẩn dưới header cố định */
+    padding-top: 170px; /* Thay đổi giá trị này tùy thuộc vào chiều cao của header */
+}
+
+header {
+    background-color: #007bff; /* Màu xanh dương cho phần nền */
+    color: rgb(3, 0, 0);
+    text-align: center;
+    padding: 20px 0;
+    background-size: cover; 
+    background-position: center; 
+    background-image: url('images/hinhnen.jpg');
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Vị trí cố định */
+    width: 100%; /* Chiều rộng toàn bộ trang */
+    top: 0; /* Ghim lên đầu trang */
+    left: 0; /* Căn lề trái */
+    z-index: 1000; /* Đặt trên các phần tử khác */
+}
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+    font-family: 'Pacifico', cursive;
+    animation: colorChange 5s infinite; /* Hiệu ứng đổi màu */
+    letter-spacing: 1px;
+}
+@keyframes colorChange {
+    0% { color: #ff8C00; } /* Màu cam */
+    50% { color: #ff6347; } /* Màu đỏ */
+    100% { color: #ff8C00; } /* Màu cam */
+}
+/* Phần điều hướng (navbar) */
+nav {
+    margin-top: 10px;
+}
+
+.navbar {
+    background-color: #FF8C00; /* Nền màu cam cho navbar */
+    list-style: none;
+    padding: 10px 0; /* Padding trên và dưới thanh điều hướng */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Bóng nhẹ dưới navbar */
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white; /* Màu chữ trắng nổi bật trên nền cam */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu nền và chữ */
+}
+
+.navbar li a:hover {
+    background-color: #FFD700; /* Màu vàng khi hover */
+    color: #333; /* Màu chữ tối khi hover */
+}
+/* Thanh bên */
+.sidebar {
+    width: 250px; /* Chiều rộng của thanh bên */
+    background-color: #f4f4f4; /* Màu nền của thanh bên */
+    padding: 50px 20px 20px; /* Thay đổi khoảng cách trên cùng để hạ thấp nội dung */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Bóng để tạo hiệu ứng nổi */
+    position: fixed; /* Đặt thanh bên cố định */
+    top: 0; /* Ghim lên đầu trang */
+    left: -250px; /* Ẩn thanh bên ra ngoài màn hình */
+    height: 100%; /* Chiều cao của thanh bên bằng với chiều cao của trang */
+    transition: left 0.3s ease; /* Hiệu ứng chuyển đổi khi hiển thị/ẩn */
+    z-index: 1000; /* Đảm bảo thanh bên nằm trên các phần tử khác */
+}
+
+.sidebar.show {
+    left: 0; /* Hiển thị thanh bên khi có lớp .show */
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff; /* Màu liên kết */
+    font-weight: bold;
+    display: block; /* Đặt các liên kết thành các khối */
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu nền và chữ */
+}
+
+.sidebar ul li a:hover {
+    background-color: #007bff; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+}
+
+
+/* Nút mở/đóng thanh bên */
+#sidebar-toggle {
+    position: fixed;
+    top: 5px; /* Khoảng cách từ đỉnh màn hình */
+    left: 20px; /* Khoảng cách từ cạnh trái màn hình */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001; /* Đặt nút trên thanh bên */
+    font-size: 24px; /* Kích thước biểu tượng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng cho nút */
+    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển màu nền và phóng to khi hover */
+}
+
+#sidebar-toggle:hover {
+    background-color: #0056b3;
+    transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
+}
+/* Main Content Container */
+/* Container cho Nội Dung Chính */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Kiểu dáng cho từng Phần */
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #333333;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+p, li {
+    color: #666666;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Kiểu dáng cho Liên kết */
+a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Kiểu dáng cho hộp Chương Trình */
+.program {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    transition: box-shadow 0.3s ease;
+}
+
+.program:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.program h3 {
+    color: #555555;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Danh sách Dịch Vụ Sinh Viên */
+#student-services ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#student-services li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#student-services a {
+    color: #1a73e8;
+}
+
+/* Kiểu dáng bổ sung để đồng nhất */
+article h3 {
+    color: #555555;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+article p {
+    margin-bottom: 20px;
+}
+
+section#featured-programs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.program {
+    width: 48%;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    clear: both;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-left, .footer-right {
+    width: 45%;
+}
+
+.footer-left h3, .footer-right h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-left p, .footer-right p {
+    margin: 5px 0;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons li img {
+    width: 24px;
+    height: 24px;
+    /* Loại bỏ filter để giữ nguyên màu sắc gốc */
+}
+
+.social-icons li a {
+    color: white;
+    text-decoration: none;
+}
+
+.social-icons li a:hover {
+    opacity: 0.7;
+}
+
+/* Kiểu dáng của nút cuộn lên đầu trang */
+#scroll-to-top {
+    position: fixed; /* Vị trí cố định ở góc dưới bên phải màn hình */
+    bottom: 20px; /* Khoảng cách từ dưới lên */
+    right: 20px; /* Khoảng cách từ bên phải vào */
+    background-color: #007bff; /* Màu nền của nút */
+    color: white; /* Màu chữ */
+    border: none; /* Không có viền */
+    border-radius: 50%; /* Hình dạng tròn */
+    width: 60px; /* Chiều rộng của nút */
+    height: 60px; /* Chiều cao của nút */
+    font-size: 24px; /* Kích thước chữ */
+    cursor: pointer; /* Con trỏ chuột dạng tay khi di chuột qua */
+    display: none; /* Ban đầu không hiển thị */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Đổ bóng để tạo hiệu ứng nổi */
+    text-align: center; /* Căn giữa chữ */
+    z-index: 1000; /* Đảm bảo nút nằm trên các phần tử khác */
+    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển đổi mượt mà khi thay đổi màu nền và kích thước */
+}
+
+/* Hiệu ứng khi di chuột qua nút */
+#scroll-to-top:hover {
+    background-color: #0056b3; /* Màu nền khi di chuột qua */
+    transform: scale(1.1); /* Phóng to nút khi di chuột qua */
+}
+
+/* Thêm nội dung (biểu tượng mũi tên lên) vào nút */
+#scroll-to-top:before {
+    content: "↑"; /* Nội dung là ký hiệu mũi tên lên */
+    font-size: 28px; /* Kích thước ký hiệu */
+    line-height: 60px; /* Căn giữa ký hiệu theo chiều dọc */
+}
+
+
+
+
+/* Căn chỉnh popup */
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nội dung của popup */
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px; /* Điều chỉnh để phù hợp với màn hình nhỏ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Nút đóng popup */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #f00;
+}
+
+/* Tiêu đề */
+.popup-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form đăng nhập/đăng ký */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Nhãn và ô nhập liệu */
+label {
+    font-size: 16px;
+    color: #555;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Nút đăng nhập/đăng ký */
+button {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%; /* Đảm bảo tất cả các ô nhập liệu có chiều rộng bằng nhau */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi chiều rộng của ô */
+}
+
+
+

@@ -149,253 +149,187 @@ nav {
     background-color: #0056b3;
     transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
 }
-/* Main Content Container */
-/* Main Container */
-.main-container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    
-  }
-  
-  /* Carousel */
-  .carousel {
-    position: relative;
-    width: 100%;
-    max-height: 500px; /* Điều chỉnh chiều cao tối đa nếu cần */
-  }
-  
-  .carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .carousel-item {
-    position: relative;
-    display: none; /* Ẩn tất cả các mục trượt khi chưa kích hoạt */
-    width: 100%;
-    transition: transform 0.6s ease;
-  }
-  
-  .carousel-item img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .carousel-item.active {
-    display: block; /* Hiển thị mục trượt hiện tại */
-  }
-  
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 5%;
-    height: 100%;
+/* main */
+.login-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: #000; /* Màu của các nút điều khiển */
-    background: rgba(0, 0, 0, 0.5); /* Nền mờ cho các nút điều khiển */
-    border: none;
-  }
-  
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: rgba(255, 255, 255, 0.5); /* Màu nền của các biểu tượng điều khiển */
-    border-radius: 50%;
-  }
-  
-  .carousel-control-prev span,
-  .carousel-control-next span {
-    display: none;
-  }
-  
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-size: 100%, 100%;
-    width: 40px;
-    height: 40px;
-  }
-  
-  /* Giới Thiệu Section */
-  .intro {
-    padding: 40px 0;
-  }
-  
-  .intro-content {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .intro-text {
-    flex: 1;
-  }
-  
-  .intro-text h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .intro-text p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .intro-image img {
+    height: 100vh;
+    padding: 20px;
+    background-image: url('images/hinhnen.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Style for the login section */
+.login-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px;
-    height: auto;
-  }
-  
-  /* Chương Trình Đào Tạo Section */
-  .programs {
-    padding: 40px 0;
-  }
-  
-  .program-list {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .program {
-    flex: 1;
-    max-width: calc(33.333% - 20px);
-  }
-  
-  .program img {
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.login-section h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
     width: 100%;
-    height: auto;
-  }
-  
-  .program h3 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-  }
-  
-  /* Tin Tức và Sự Kiện Section */
-  .news {
-    padding: 40px 0;
-  }
-  
-  .news-list {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .news-item {
-    flex: 1;
-    max-width: calc(33.333% - 20px);
-  }
-  
-  .news-item img {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-group button {
     width: 100%;
-    height: auto;
-  }
-  
-  .news-item h3 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-  }
-  
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+
+.form-group a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.form-group a:hover {
+    text-decoration: underline;
+}
+
+/* Forgot password section */
+#forgot-password {
+    margin-top: 20px;
+}
+
+#forgot-password h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+#forgot-password .form-group {
+    margin-bottom: 10px;
+}
+
+
+
 /* Footer */
+
 footer {
     background-color: #333;
     color: white;
     padding: 20px 0;
-    position: relative;
-    clear: both;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    text-align: center; /* Canh giữa nội dung */
+    margin-top: auto; /* Đẩy footer xuống dưới cùng */
 }
 
-.footer-container-m {
+.footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 0 20px;
     flex-wrap: wrap;
 }
 
-.footer-left-m, .footer-right-m {
+.footer-left, .footer-right {
     width: 45%;
 }
 
-.footer-left-m h3, .footer-right-m h3 {
+.footer-left h3, .footer-right h3 {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-.footer-left-m p, .footer-right-m p {
+.footer-left p, .footer-right p {
     margin: 5px 0;
 }
 
-.social-icons-m {
+.social-icons {
     list-style: none;
     padding: 0;
 }
 
-.social-icons-m li {
+.social-icons li {
     display: inline-block;
     margin-right: 10px;
 }
 
-.social-icons-m li img {
+.social-icons li img {
     width: 24px;
     height: 24px;
-    /* Loại bỏ filter để giữ nguyên màu sắc gốc */
 }
 
-.social-icons-m li a {
+.social-icons li a {
     color: white;
     text-decoration: none;
 }
 
-.social-icons-m li a:hover {
+.social-icons li a:hover {
     opacity: 0.7;
 }
 
-/* Kiểu dáng của nút cuộn lên đầu trang */
+
+/* Nút quay lên đầu trang */
 #scroll-to-top {
-    position: fixed; /* Vị trí cố định ở góc dưới bên phải màn hình */
-    bottom: 20px; /* Khoảng cách từ dưới lên */
-    right: 20px; /* Khoảng cách từ bên phải vào */
-    background-color: #007bff; /* Màu nền của nút */
-    color: white; /* Màu chữ */
-    border: none; /* Không có viền */
-    border-radius: 50%; /* Hình dạng tròn */
-    width: 60px; /* Chiều rộng của nút */
-    height: 60px; /* Chiều cao của nút */
-    font-size: 24px; /* Kích thước chữ */
-    cursor: pointer; /* Con trỏ chuột dạng tay khi di chuột qua */
-    display: none; /* Ban đầu không hiển thị */
-    align-items: center; /* Căn giữa nội dung theo chiều dọc */
-    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Đổ bóng để tạo hiệu ứng nổi */
-    text-align: center; /* Căn giữa chữ */
-    z-index: 1000; /* Đảm bảo nút nằm trên các phần tử khác */
-    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển đổi mượt mà khi thay đổi màu nền và kích thước */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Hiệu ứng khi di chuột qua nút */
 #scroll-to-top:hover {
-    background-color: #0056b3; /* Màu nền khi di chuột qua */
-    transform: scale(1.1); /* Phóng to nút khi di chuột qua */
+    background-color: #0056b3;
+    transform: scale(1.1);
 }
 
-/* Thêm nội dung (biểu tượng mũi tên lên) vào nút */
 #scroll-to-top:before {
-    content: "↑"; /* Nội dung là ký hiệu mũi tên lên */
-    font-size: 28px; /* Kích thước ký hiệu */
-    line-height: 60px; /* Căn giữa ký hiệu theo chiều dọc */
+    content: "↑";
+    font-size: 28px;
 }
-
-
-
-
-
-
-

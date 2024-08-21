@@ -1,52 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle sidebar toggle
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.querySelector('.sidebar');
+// JavaScript cho thanh bên
+document.getElementById('sidebar-toggle').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('show');
+});
+// JavaScript cho nút cuộn lên đầu trang
+document.getElementById('scroll-to-top').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
-    sidebarToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('active');
-    });
-
-    // Handle login popup
-    const loginBtn = document.getElementById('loginBtn');
-    const loginPopup = document.getElementById('loginPopup');
-    const closeLogin = loginPopup.querySelector('.close');
-
-    loginBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        loginPopup.style.display = 'block';
-    });
-
-    closeLogin.addEventListener('click', function() {
-        loginPopup.style.display = 'none';
-    });
-
-    // Handle register popup
-    const registerBtn = document.getElementById('registerBtn');
-    const registerPopup = document.getElementById('registerPopup');
-    const closeRegister = registerPopup.querySelector('.close');
-
-    registerBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        registerPopup.style.display = 'block';
-    });
-
-    closeRegister.addEventListener('click', function() {
-        registerPopup.style.display = 'none';
-    });
-
-    // Handle scroll-to-top button
+window.addEventListener('scroll', function() {
     const scrollToTopBtn = document.getElementById('scroll-to-top');
+    if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+});
+//* carousel
+let currentIndex = 0;
 
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.style.display = 'block';
-        } else {
-            scrollToTopBtn.style.display = 'none';
-        }
-    });
-
-    scrollToTopBtn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+function moveSlide(step) {
+    const slides = document.querySelector('.carousel-slides');
+    const totalSlides = document.querySelectorAll('.carousel-slide').length;
+    currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+    const offset = -currentIndex * 100;
+    slides.style.transform = `translateX(${offset}%)`;
+}
+// loading home
+// Lấy phần tử có id 'homeBtn'
+document.getElementById('homeBtn').addEventListener('click', function(event) {
+    // Ngăn chặn hành động mặc định của liên kết (như chuyển hướng)
+    event.preventDefault();
+    
+    // Tải lại trang hiện tại
+    location.reload();
 });

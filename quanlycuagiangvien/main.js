@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Khởi tạo sinh viên mặc định
     const students = [
-        new Student('20247011', "Tạ Thị Thùy", convertDateFormat('07/02/2005'), '12KT1', '/images/anhthe1.jpg'),
-        new Student('20247012', 'Đàm Kiều Trinh', convertDateFormat('05/02/2005'), '12KT2', '/images/anhthe2.jpg'),
-        new Student('20247023', 'Phan Thị Ánh', convertDateFormat('22/01/2005'), '12KT3', '/images/anhthe3.jpg'),
-        new Student('20247022', 'Bùi Tấn Tài', convertDateFormat('22/03/2005'), '12KT2', '/images/anhthe4.jpg'),
-        new Student('20247039', 'Đoàn Trí Hưng', convertDateFormat('12/08/2005'), '12KT3', '/images/anhthe6.jpg'),
-        new Student('20247025', 'Bùi Nhật Kim Anh', convertDateFormat('22/07/2005'), '12KT1', '/images/anhthe5.jpg')
+        new Student('20247011', "Tạ Thị Thùy", convertDateFormat('07/02/2005'), '12KT1', 'images/anhthe1.jpg'),
+        new Student('20247012', 'Đàm Kiều Trinh', convertDateFormat('05/02/2005'), '12KT2', 'images/anhthe2.jpg'),
+        new Student('20247023', 'Phan Thị Ánh', convertDateFormat('22/01/2005'), '12KT3', 'images/anhthe3.jpg'),
+        new Student('20247022', 'Bùi Tấn Tài', convertDateFormat('22/03/2005'), '12KT2', 'images/anhthe4.jpg'),
+        new Student('20247039', 'Đoàn Trí Hưng', convertDateFormat('12/08/2005'), '12KT3', 'images/anhthe6.jpg'),
+        new Student('20247025', 'Bùi Nhật Kim Anh', convertDateFormat('22/07/2005'), '12KT1', 'images/anhthe5.jpg')
     ];
     students.forEach(student => studentManager.addStudent(student));
 

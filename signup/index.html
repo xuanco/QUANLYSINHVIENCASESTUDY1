@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <!-- Cập nhật nút trong HTML -->
+    <button id="sidebar-toggle" aria-label="Mở/Đóng Thanh Bên">
+        <i class="fas fa-bars"></i> <!-- Biểu tượng thanh menu từ Font Awesome -->
+    </button>
+
+    <div class="container">
+        <header>
+            <h1>Trường Đại Học Trần Hưng Đạo</h1>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="/homepage/homepage.html">Trang Chủ</a></li>
+                    <li><a href="#">Phòng Đào Tạo</a></li>
+                    <li><a href="#">Khoa-Bộ Môn</a></li>
+                    <li><a href="#">Tuyển Sinh</a></li>
+                    <li><a href="#">Thư Viện</a></li>
+                    <li><a href="#">Diễn Đàn</a></li>
+                    <li>
+                        <a href="/Login/index.html" >Đăng Nhập</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#" >Đăng Ký</a>
+                       
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Thanh bên -->
+        <aside class="sidebar">
+            <h3>Danh Mục</h3>
+            <ul>
+                <li><a href="#">Tổng Quan về TDU</a></li>
+                <li><a href="#">Tầm Nhìn - Sứ Mạng</a></li>
+                <li><a href="#">Giá trị cốt lõi</a></li>
+                <li><a href="#">Lịch sử hình thành và phát triển</a></li>
+                <li><a href="#">Ban Giám Hiệu</a></li>
+                <li><a href="#">Cơ sở Học Tập</a></li>
+                <li><a href="#">Hệ Thống Nhận Diện</a></li>
+                <li><a href="#">Chương Trình Liên Kết Quốc Tế </a></li>
+            </ul>
+        </aside>
+        <!-- main -->
+        <main class="registration-main">
+            <div class="registration-container">
+                <h2>Đăng Ký Tài Khoản</h2>
+                <form id="registrationForm" action="submit_registration.php" method="post">
+                    <div class="form-group">
+                        <label for="fullname">Họ và Tên</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Tên Đăng Nhập</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mật Khẩu</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Xác Nhận Mật Khẩu</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Giới Tính</label>
+                        <select id="gender" name="gender" required>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Ngày Sinh</label>
+                        <input type="date" id="birthdate" name="birthdate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số Điện Thoại</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Địa Chỉ</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Bạn là:</label>
+                        <select id="role" name="role" required>
+                            <option value="student">Sinh viên</option>
+                            <option value="teacher">Giảng viên</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Đăng Ký</button>
+                    </div>
+                    <div class="form-group">
+                        <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+                    </div>
+                </form>
+            </div>
+        </main>
+        
+        
+        <button id="scroll-to-top" aria-label="Cuộn lên đầu trang"></button>
+        <!-- footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h3>Liên hệ</h3>
+                    <p>Địa chỉ: 123 Đường ABC, Phường XYZ, Thành phố Biên Hòa</p>
+                    <p>Email: example@domain.com</p>
+                    <p>Điện thoại: +84 123 456 789</p>
+                </div>
+                <div class="footer-right">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <ul class="social-icons">
+                        <li><a href="#"><img src="images/facebook.jpg" alt="Facebook">Facebook</a></li>
+                        <li><a href="#"><img src="images/twitter.png" alt="Twitter">Twitter</a></li>
+                        <li><a href="#"><img src="images/instagram.jpg" alt="Instagram">Instagram</a></li>
+                        <li><a href="#"><img src="images/youtube.png" alt="YouTube">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="scripts.js"></script>
+    
+</body>
+</html>

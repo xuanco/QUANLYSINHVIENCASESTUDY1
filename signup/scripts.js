@@ -26,16 +26,23 @@ document.getElementById('sidebar-toggle').addEventListener('keydown', function(e
     }
 });
 
-// Xử lý form đăng ký
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('registrationForm');
+// from dang  ky
+    document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('registrationForm'); // Xác nhận ID đúng
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault(); // Ngăn chặn gửi form mặc định
 
+        // Lấy giá trị từ các ô input
+        const fullname = document.getElementById('fullname').value;
+        const email = document.getElementById('email').value;
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirm_password').value;
+        const gender = document.getElementById('gender').value;
+        const birthdate = document.getElementById('birthdate').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
         const role = document.getElementById('role').value;
 
         // Kiểm tra định dạng tên tài khoản
@@ -69,14 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password, role })
+                body: JSON.stringify({ fullname, email, username, password, gender, birthdate, phone, address, role })
             });
 
             const data = await response.json();
 
             if (data.success) {
                 // Lưu thông tin người dùng vào Local Storage
-                existingUsers.push({ username, password, role });
+                existingUsers.push({ fullname, email, username, password, gender, birthdate, phone, address, role });
                 localStorage.setItem('users', JSON.stringify(existingUsers));
 
                 // Chuyển hướng đến trang add.html
@@ -89,4 +96,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-

@@ -1,0 +1,78 @@
+/* Dành cho màn hình có chiều rộng 600px trở xuống */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        font-size: 14px;
+        flex-direction: column; /* Điều chỉnh navbar thành cột để tiết kiệm không gian */
+        text-align: center;
+    }
+
+    .student-list table {
+        font-size: 12px;
+        display: block; /* Biến bảng thành dạng khối để dễ xem trên màn hình nhỏ */
+        width: 100%;
+        overflow-x: auto; /* Cho phép cuộn ngang nếu bảng quá rộng */
+    }
+
+    .student-list td, .student-list th {
+        display: block;
+        width: 100%;
+    }
+
+    .add-student-form {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .footer {
+        font-size: 12px;
+        text-align: center;
+    }
+}
+/* Dành cho màn hình laptop 14 inch */
+@media (min-width: 1280px) and (max-width: 1440px) {
+    /* Các điều chỉnh CSS cần thiết cho laptop 14 inch */
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .navbar {
+        font-size: 16px;
+    }
+}
+
+/* Dành cho điện thoại di động (chiều rộng nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        font-size: 14px;
+    }
+
+    .student-list table {
+        font-size: 12px;
+    }
+}
+
+/* Dành cho iPhone (ví dụ với iPhone 14) */
+@media (max-width: 390px) {
+    .container {
+        padding: 5px;
+    }
+
+    .navbar {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .student-list table {
+        font-size: 10px;
+    }
+}

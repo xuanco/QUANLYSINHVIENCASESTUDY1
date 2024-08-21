@@ -146,57 +146,29 @@ function saveToLocalStorage() {
     localStorage.setItem('students', JSON.stringify(students));
 }
 
-// Lấy các phần tử cần thiết cho đăng nhập
-const loginBtn = document.getElementById('loginBtn');
-const loginPopup = document.getElementById('loginPopup');
-const closeBtns = document.querySelectorAll('.close');
-
-// Hiển thị popup khi nhấn nút đăng nhập
-loginBtn.addEventListener('click', () => {
-    loginPopup.style.display = 'flex';
-});
-
-// Lấy các phần tử cần thiết cho đăng ký
-const registerBtn = document.getElementById('registerBtn');
-const registerPopup = document.getElementById('registerPopup');
-
-// Hiển thị popup khi nhấn nút đăng ký
-registerBtn.addEventListener('click', () => {
-    registerPopup.style.display = 'flex';
-});
-
-// Đóng popup khi nhấn nút đóng cho cả đăng nhập và đăng ký
-closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        loginPopup.style.display = 'none';
-        registerPopup.style.display = 'none';
-    });
-});
-
-// Đóng popup khi nhấn ra ngoài
-window.addEventListener('click', (event) => {
-    if (event.target === loginPopup) {
-        loginPopup.style.display = 'none';
-    } else if (event.target === registerPopup) {
-        registerPopup.style.display = 'none';
-    }
-});
-
 document.addEventListener('DOMContentLoaded', function() {
-    const toggleButton = document.getElementById('sidebar-toggle'); // Đổi tên từ 'toggle-sidebar' thành 'sidebar-toggle'
+    const toggleButton = document.getElementById('sidebar-toggle');
     const sidebar = document.querySelector('.sidebar');
 
     toggleButton.addEventListener('click', function() {
         sidebar.classList.toggle('show');
     });
 
-    // Đóng thanh bên khi người dùng nhấp ra ngoài thanh bên (nếu cần)
+    // Đóng thanh bên khi người dùng nhấp ra ngoài thanh bên
     document.addEventListener('click', function(event) {
         if (!sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
             sidebar.classList.remove('show');
         }
     });
+
+    // Đóng thanh bên khi người dùng nhấn phím Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            sidebar.classList.remove('show');
+        }
+    });
 });
+
 // Ví dụ: Điều hướng đến trang Quản Lý Sinh Viên khi người dùng nhấn vào liên kết tương ứng
 document.getElementById("studentManagementLink").addEventListener("click", function() {
     window.location.href = "studentManagement.html";

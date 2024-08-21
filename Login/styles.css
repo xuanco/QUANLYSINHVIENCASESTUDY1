@@ -150,6 +150,13 @@ nav {
     transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
 }
 /* main */
+h2 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+}
 .login-container {
     display: flex;
     justify-content: center;

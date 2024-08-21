@@ -1,0 +1,65 @@
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+    .navbar {
+        flex-direction: column;
+    }
+    .navbar li {
+        margin-bottom: 10px;
+    }
+    .sidebar {
+        width: 200px;
+    }
+    .sidebar.show {
+        left: 0;
+    }
+    .login-section {
+        padding: 15px;
+        max-width: 90%;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 10px 0;
+    }
+    .navbar {
+        padding: 10px;
+    }
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        box-shadow: none;
+    }
+    .login-section {
+        padding: 10px;
+        max-width: 95%;
+    }
+    .footer-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    header {
+        padding: 5px 0;
+    }
+    .navbar {
+        padding: 5px;
+    }
+    .login-section {
+        padding: 5px;
+        max-width: 100%;
+    }
+}

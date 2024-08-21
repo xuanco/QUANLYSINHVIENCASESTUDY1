@@ -11,7 +11,7 @@ body {
     padding: 0;
     box-sizing: border-box; /* Đảm bảo kích thước chính xác cho các phần tử */
     /* Đảm bảo nội dung không bị ẩn dưới header cố định */
-    padding-top: 175px; /* Thay đổi giá trị này tùy thuộc vào chiều cao của header */
+    padding-top: 200px; /* Thay đổi giá trị này tùy thuộc vào chiều cao của header */
 }
 
 header {

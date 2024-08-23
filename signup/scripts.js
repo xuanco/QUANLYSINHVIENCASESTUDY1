@@ -26,14 +26,14 @@ document.getElementById('sidebar-toggle').addEventListener('keydown', function(e
     }
 });
 
-// from dang  ky
-    document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('registrationForm'); // Xác nhận ID đúng
+// Xử lý form đăng ký
+document.addEventListener('DOMContentLoaded', () => {
+    const registrationForm = document.getElementById('registrationForm');
 
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Ngăn chặn gửi form mặc định
+    registrationForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn việc gửi biểu mẫu mặc định
 
-        // Lấy giá trị từ các ô input
+        // Lấy dữ liệu từ biểu mẫu
         const fullname = document.getElementById('fullname').value;
         const email = document.getElementById('email').value;
         const username = document.getElementById('username').value;
@@ -45,54 +45,32 @@ document.getElementById('sidebar-toggle').addEventListener('keydown', function(e
         const address = document.getElementById('address').value;
         const role = document.getElementById('role').value;
 
-        // Kiểm tra định dạng tên tài khoản
-        if (!/^((SV)|(GV))2024\d{4}$/.test(username)) {
-            alert('Tên tài khoản phải bắt đầu bằng "SV" hoặc "GV", tiếp theo là "2024" và 4 ký tự số.');
-            return;
-        }
-
-        // Kiểm tra mật khẩu
-        if (password.length < 6) {
-            alert('Mật khẩu phải có ít nhất 6 ký tự.');
-            return;
-        }
-
+        // Kiểm tra mật khẩu và xác nhận mật khẩu
         if (password !== confirmPassword) {
-            alert('Mật khẩu và xác nhận mật khẩu không khớp.');
+            alert('Mật khẩu xác nhận không khớp!');
             return;
         }
 
-        // Kiểm tra tên tài khoản đã tồn tại
-        let existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-        if (existingUsers.find(user => user.username === username)) {
-            alert('Tên tài khoản đã tồn tại.');
-            return;
-        }
+        // Tạo đối tượng người dùng
+        const user = {
+            fullname,
+            email,
+            username,
+            password,
+            gender,
+            birthdate,
+            phone,
+            address,
+            role
+        };
 
-        // Gửi yêu cầu đăng ký đến server
-        try {
-            const response = await fetch('http://localhost:3000/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ fullname, email, username, password, gender, birthdate, phone, address, role })
-            });
+        // Lưu người dùng vào Local Storage
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
 
-            const data = await response.json();
-
-            if (data.success) {
-                // Lưu thông tin người dùng vào Local Storage
-                existingUsers.push({ fullname, email, username, password, gender, birthdate, phone, address, role });
-                localStorage.setItem('users', JSON.stringify(existingUsers));
-
-                // Chuyển hướng đến trang add.html
-                window.location.href = '/signup/add.html';
-            } else {
-                alert('Đăng ký thất bại.');
-            }
-        } catch (error) {
-            console.error('Lỗi:', error);
-        }
+        // Thông báo thành công hoặc chuyển hướng
+        alert('Đăng ký thành công!');
+        window.location.href = '/Login/index.html'; // Chuyển hướng đến trang đăng nhập
     });
 });

@@ -28,15 +28,8 @@
                     <li><a href="#">Tuyển Sinh</a></li>
                     <li><a href="#">Thư Viện</a></li>
                     <li><a href="#">Diễn Đàn</a></li>
-                    <li>
-                        <a href="#" >Đăng Nhập</a>
-                        
-                    </li>
-                    
-                    <li>
-                        <a href="/signup/index.html" >Đăng Ký</a>
-                       
-                    </li>
+                    <li><a href="#">Đăng Nhập</a></li>
+                    <li><a href="/signup/index.html">Đăng Ký</a></li>
                 </ul>
             </nav>
         </header>
@@ -52,7 +45,7 @@
                 <li><a href="#">Ban Giám Hiệu</a></li>
                 <li><a href="#">Cơ sở Học Tập</a></li>
                 <li><a href="#">Hệ Thống Nhận Diện</a></li>
-                <li><a href="#">Chương Trình Liên Kết Quốc Tế </a></li>
+                <li><a href="#">Chương Trình Liên Kết Quốc Tế</a></li>
             </ul>
         </aside>
         
@@ -84,19 +77,20 @@
                         <div class="form-group">
                             <a href="/signup/index.html">Chưa có tài khoản? Đăng ký ngay</a>
                         </div>
-                        <div id="forgot-password" class="form-group" style="display:none;">
-                            <h3>Quên Mật Khẩu</h3>
-                            <form id="forgotPasswordForm" action="forgot-password.php" method="post">
-                                <div class="form-group">
-                                    <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit">Gửi liên kết đặt lại mật khẩu</button>
-                                </div>
-                            </form>
-                        </div>
                     </form>
+                    <!-- Di chuyển form quên mật khẩu ra ngoài form đăng nhập -->
+                    <div id="forgot-password" class="form-group" style="display:none;">
+                        <h3>Quên Mật Khẩu</h3>
+                        <form id="forgotPasswordForm" action="forgot-password.php" method="post">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit">Gửi liên kết đặt lại mật khẩu</button>
+                            </div>
+                        </form>
+                    </div>
                 </section>
             </div>
         </main>
@@ -125,6 +119,13 @@
     </div>
 
     <script type="module" src="scripts.js"></script>
-    
+    <script>
+        function toggleForgotPassword() {
+            const forgotPasswordSection = document.getElementById('forgot-password');
+            if (forgotPasswordSection) {
+                forgotPasswordSection.style.display = forgotPasswordSection.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Ví dụ: Điều hướng đến trang Quản Lý Sinh Viên khi người dùng nhấn vào liên kết tương ứng
-document.getElementById("studentManagementLink").addEventListener("click", function() {
-    window.location.href = "studentManagement.html";
-});
+//  Điều hướng đến trang Quản Lý Sinh Viên khi người dùng nhấn vào liên kết tương ứng
+// document.getElementById("studentManagementLink").addEventListener("click", function() {
+//     window.location.href = "studentManagement.html";
+// });

@@ -3,11 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.querySelector('.sidebar');
 
-    if (sidebarToggle) {
+    if (sidebarToggle && sidebar) {
         sidebarToggle.addEventListener('click', function() {
-            if (sidebar) {
-                sidebar.classList.toggle('show');
-            }
+            sidebar.classList.toggle('show');
         });
     }
 
@@ -18,67 +16,75 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollToTopBtn.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    }
 
-    // Hàm để hiển thị hoặc ẩn nút cuộn lên đầu trang dựa trên vị trí cuộn
-    window.addEventListener('scroll', function() {
-        if (scrollToTopBtn) {
+        // Hiển thị hoặc ẩn nút cuộn lên đầu trang dựa trên vị trí cuộn
+        window.addEventListener('scroll', function() {
             if (window.scrollY > 300) { // Hiển thị nút khi cuộn xuống hơn 300px
                 scrollToTopBtn.style.display = 'flex';
             } else {
                 scrollToTopBtn.style.display = 'none';
             }
-        }
-    });
+        });
+    }
 
-    // Xử lý form đăng nhập
-    const loginForm = document.getElementById('login-form');
+    // Xử lý đăng nhập
+    const loginForm = document.getElementById('loginForm');
+    const forgotPasswordLink = document.querySelector('a[href="#"]');
+    const forgotPasswordSection = document.getElementById('forgot-password');
+    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
 
     if (loginForm) {
-        loginForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn việc gửi biểu mẫu mặc định
 
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
 
-            // Kiểm tra điều kiện của tên tài khoản
-            const validUsernamePattern = /^(SV|GV)2024\d{4}$/;
+            // Lấy danh sách người dùng từ Local Storage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
 
-            if (!validUsernamePattern.test(username)) {
-                alert("Tên tài khoản phải bắt đầu bằng SV hoặc GV, tiếp theo là 2024 và 4 số cuối.");
-                return;
-            }
+            // Kiểm tra thông tin đăng nhập
+            const user = users.find(user => user.username === username && user.password === password);
 
-            if (password.length < 6) {
-                alert("Mật khẩu phải có ít nhất 6 ký tự.");
-                return;
-            }
-
-            // Gửi yêu cầu đăng nhập đến server
-            try {
-                const response = await fetch('http://localhost:3000/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, password })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    if (username.startsWith('GV')) {
-                        window.location.href = '/quanlycuagiangvien/index.html';
-                    } else if (username.startsWith('SV')) {
-                        window.location.href = '/quanlycuasinhvien/index.html';
-                    }
+            if (user) {
+                if (rememberMe) {
+                    localStorage.setItem('loggedInUser', JSON.stringify(user));
                 } else {
-                    alert('Tên tài khoản hoặc mật khẩu không chính xác.');
+                    sessionStorage.setItem('loggedInUser', JSON.stringify(user));
                 }
-            } catch (error) {
-                console.error('Lỗi:', error);
-                alert('Có lỗi xảy ra khi đăng nhập.');
+                // Chuyển hướng đến trang quản lý sau khi đăng nhập thành công
+                window.location.href = '/quanlycuagiangvien/index.html';
+            } else {
+                alert('Tên đăng nhập hoặc mật khẩu không đúng!');
             }
         });
     }
+
+    // Xử lý hiển thị/ẩn form quên mật khẩu
+    if (forgotPasswordLink && forgotPasswordSection) {
+        forgotPasswordLink.addEventListener('click', function() {
+            toggleForgotPassword();
+        });
+    }
+
+    // Xử lý quên mật khẩu
+    if (forgotPasswordForm) {
+        forgotPasswordForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn việc gửi biểu mẫu mặc định
+
+            const email = document.getElementById('email').value;
+            // Xử lý gửi liên kết đặt lại mật khẩu (Giả định là bạn đã có backend xử lý việc này)
+            alert('Đã gửi liên kết đặt lại mật khẩu tới email của bạn!');
+            toggleForgotPassword(); // Ẩn form quên mật khẩu sau khi gửi
+        });
+    }
 });
+
+// Hàm để hiển thị/ẩn form quên mật khẩu
+function toggleForgotPassword() {
+    const forgotPasswordSection = document.getElementById('forgot-password');
+    if (forgotPasswordSection) {
+        forgotPasswordSection.style.display = forgotPasswordSection.style.display === 'none' || forgotPasswordSection.style.display === '' ? 'block' : 'none';
+    }
+}

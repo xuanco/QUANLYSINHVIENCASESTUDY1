@@ -191,14 +191,8 @@ main {
     background-color: #45a049;
 }
 
-/* Cả nút sắp xếp theo tên và dropdown sắp xếp theo lớp */
-.sort-container {
-    display: flex;
-    align-items: center; /* Căn giữa theo chiều dọc */
-    margin-bottom: 20px;
-}
-
-#sort-name-btn, #sort-class-select {
+/* Nút sắp xếp theo tên và dropdown sắp xếp theo lớp */
+.sort-container button, .sort-container select {
     padding: 10px 20px;
     font-size: 1em;
     border: 1px solid #ddd;
@@ -207,7 +201,6 @@ main {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    margin-right: 10px; /* Khoảng cách giữa nút và dropdown */
     text-align: center; /* Căn giữa chữ trong phần tử */
     height: 40px; /* Đảm bảo chiều cao đồng nhất */
     box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước */
@@ -219,14 +212,12 @@ main {
     transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
 }
 
-/* Dropdown sắp xếp theo lớp khi hover */
+/* Dropdown sắp xếp theo lớp */
 #sort-class-select {
     background-color: #007bff;
     color: white;
     border: 1px solid #ddd; /* Đảm bảo viền dropdown giống như nút */
-    height: 40px; /* Đảm bảo chiều cao đồng nhất với nút */
     width: 200px; /* Đảm bảo chiều rộng giống như nút */
-    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước */
 }
 
 /* Cải thiện hình ảnh của dropdown để đồng nhất */

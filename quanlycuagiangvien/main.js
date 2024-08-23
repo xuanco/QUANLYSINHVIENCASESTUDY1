@@ -36,6 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
     students.forEach(student => studentManager.addStudent(student));
 
     studentManager.sortStudentsByName();
+    
+    // Handle sidebar toggle
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('sidebar-active');
+    });
 });
 
 // Xử lý sự kiện thêm sinh viên
@@ -142,3 +150,36 @@ function saveToLocalStorage() {
     localStorage.setItem('students', JSON.stringify(studentManager.students));
 }
 
+// Xử lý sự kiện xóa lớp
+document.getElementById('remove-class-btn').addEventListener('click', function() {
+    const classToRemove = prompt('Nhập tên lớp cần xóa:');
+    if (classToRemove) {
+        // Xóa lớp khỏi danh sách lớp trong select
+        const classSelect = document.getElementById('student-class');
+        const sortClassSelect = document.getElementById('sort-class-select');
+        
+        // Xóa lớp khỏi phần chọn lớp
+        const classOption = Array.from(classSelect.options).find(option => option.value === classToRemove);
+        if (classOption) {
+            classSelect.removeChild(classOption);
+        }
+
+        // Xóa lớp khỏi phần lọc lớp
+        const sortClassOption = Array.from(sortClassSelect.options).find(option => option.value === classToRemove);
+        if (sortClassOption) {
+            sortClassSelect.removeChild(sortClassOption);
+        }
+
+        // Cập nhật danh sách sinh viên để loại bỏ sinh viên thuộc lớp bị xóa
+        studentManager.students = studentManager.students.filter(student => student.studentClass !== classToRemove);
+        studentManager.render();
+
+        // Lưu lại vào Local Storage
+        saveToLocalStorage();
+    }
+});
+// Xử lý chuyển đổi hiển thị của thanh bên
+document.getElementById('sidebar-toggle').addEventListener('click', function() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('show');
+});

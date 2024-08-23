@@ -11,7 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <!-- Cập nhật nút trong HTML -->
+    <button id="sidebar-toggle" aria-label="Mở/Đóng Thanh Bên">
+        <i class="fas fa-bars"></i> <!-- Biểu tượng thanh menu từ Font Awesome -->
+    </button>
     <header>
         <h1>Trường Đại Học Trần Hưng Đạo</h1>
         <nav>
@@ -25,7 +28,21 @@
             </ul>
         </nav>
     </header>
-
+    <div class="sidebar">
+        <h2>Quản Lý Sinh Viên</h2>
+        <ul>
+            <li><a href="#thong-tin">Thông Tin Sinh Viên</a></li>
+            <li><a href="#mon-hoc">Danh Sách Môn Học</a></li>
+            <li><a href="#lich-hoc">Lịch Học</a></li>
+            <li><a href="#ket-qua">Kết Quả Học Tập</a></li>
+            <li><a href="#dang-ky">Đăng Ký Học Phần</a></li>
+            <li><a href="#thong-bao">Thông Báo</a></li>
+            <li><a href="#tai-lieu">Tài Liệu Học Tập</a></li>
+            <li><a href="#ho-so">Hồ Sơ Cá Nhân</a></li>
+            <li><a href="#cai-dat">Cài Đặt</a></li>
+            <li><a href="#tro-giup">Trợ Giúp</a></li>
+        </ul>
+    </div>
     <main>
         <section class="class-registration">
             <h2>Đăng Ký Lớp Học</h2>
@@ -104,7 +121,7 @@
         </div>
     </footer>
 
-    
+    <script type="module" src="student.js"></script>
     <script type="module" src="main.js"></script>
 </body>
 </html>

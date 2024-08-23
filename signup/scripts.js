@@ -51,22 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Kiểm tra định dạng tên tài khoản
-        const usernamePattern = role === 'student' 
-            ? /^SV2024\d{4}$/ 
-            : /^GV2024\d{4}$/;
-
-        if (!usernamePattern.test(username)) {
-            alert('Tên đăng nhập không hợp lệ. Đối với sinh viên phải bắt đầu bằng "SV2024" và có 4 ký tự số cuối cùng. Đối với giảng viên phải bắt đầu bằng "GV2024" và có 4 ký tự số cuối cùng.');
-            return;
-        }
-
-        // Kiểm tra độ dài mật khẩu
-        if (password.length < 6) {
-            alert('Mật khẩu phải có ít nhất 6 ký tự.');
-            return;
-        }
-
         // Tạo đối tượng người dùng
         const user = {
             fullname,

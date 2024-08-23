@@ -53,20 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     sessionStorage.setItem('loggedInUser', JSON.stringify(user));
                 }
-
-                // Xác định đường dẫn chuyển hướng dựa trên vai trò
-                let redirectUrl = '';
-                if (username.startsWith('SV2024')) {
-                    redirectUrl = '/quanlycuasinhvien/index.html'; // Đường dẫn cho sinh viên
-                } else if (username.startsWith('GV2024')) {
-                    redirectUrl = '/quanlycuagiangvien/index.html'; // Đường dẫn cho giảng viên
-                } else {
-                    alert('Tên đăng nhập không hợp lệ!');
-                    return;
-                }
-
-                // Chuyển hướng đến trang quản lý phù hợp
-                window.location.href = redirectUrl;
+                // Chuyển hướng đến trang quản lý sau khi đăng nhập thành công
+                window.location.href = '/quanlycuagiangvien/index.html';
             } else {
                 alert('Tên đăng nhập hoặc mật khẩu không đúng!');
             }

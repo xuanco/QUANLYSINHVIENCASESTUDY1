@@ -1,77 +1,148 @@
-/* Kiểu cho màn hình có độ rộng tối đa 320px */
-@media screen and (max-width: 320px) {
-    h1 {
-        font-size: 2em; /* Điều chỉnh kích thước chữ của header cho màn hình nhỏ */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+        position: relative; /* Adjust header positioning */
     }
-    
+
+    h1 {
+        font-size: 2.5em; /* Smaller font size for smaller screens */
+    }
+
     .navbar {
-        flex-direction: column; /* Xếp các mục của navbar theo chiều dọc */
-        gap: 10px; /* Giảm khoảng cách giữa các mục trong navbar */
+        flex-direction: column;
+        padding: 5px 0;
+    }
+
+    .navbar li {
+        display: block;
+        margin: 5px 0;
     }
 
     .sidebar {
-        width: 100%; /* Sidebar chiếm toàn bộ chiều rộng */
+        width: 200px;
+        padding: 20px;
+        left: -200px; /* Hide sidebar offscreen */
+    }
+
+    .sidebar.show {
+        left: 0; /* Show sidebar */
     }
 
     #sidebar-toggle {
-        width: 30px;
-        height: 30px;
+        left: 10px;
+    }
+
+    main {
+        padding: 10px;
+        margin-top: 200px; /* Adjust margin to account for the fixed header */
+    }
+
+    .search-container {
+        flex-direction: column; /* Stack search input and button vertically */
+        align-items: stretch; /* Make input and button full width */
+        gap: 10px;
+    }
+
+    #search-input {
+        width: 100%;
+        margin-bottom: 10px; /* Add spacing between input and button */
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .social-icons li {
+        margin-right: 5px;
+    }
+
+    .social-icons li img {
+        width: 20px;
+        height: 20px;
+    }
+
+    #scroll-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
         font-size: 20px;
     }
-    
-    /* Điều chỉnh các phần tử khác nếu cần cho màn hình nhỏ */
 }
 
-/* Kiểu cho màn hình có độ rộng tối đa 600px */
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
+    header {
+        padding: 10px 0;
+    }
+
     h1 {
-        font-size: 2.5em; /* Điều chỉnh kích thước chữ của header */
-    }
-    
-    .navbar {
-        flex-direction: column; /* Xếp các mục của navbar theo chiều dọc */
-        gap: 15px; /* Điều chỉnh khoảng cách giữa các mục trong navbar */
-    }
-
-    .sidebar {
-        width: 80%; /* Chiều rộng của sidebar cho màn hình trung bình */
-    }
-
-    .footer-container {
-        flex-direction: column; /* Xếp các mục của footer theo chiều dọc */
-        align-items: center; /* Căn giữa các mục trong footer */
-    }
-
-    .footer-left, .footer-right {
-        width: 100%; /* Các mục trong footer chiếm toàn bộ chiều rộng */
-    }
-    
-    /* Điều chỉnh các phần tử khác nếu cần */
-}
-
-/* Kiểu cho màn hình có độ rộng tối đa 768px */
-@media screen and (max-width: 768px) {
-    h1 {
-        font-size: 2.8em; /* Tăng nhẹ kích thước chữ của header */
+        font-size: 2em;
     }
 
     .navbar {
-        flex-direction: row; /* Giữ các mục của navbar theo hàng ngang */
-        gap: 15px; /* Điều chỉnh khoảng cách giữa các mục trong navbar */
+        gap: 15px;
     }
 
     .sidebar {
-        width: 60%; /* Điều chỉnh chiều rộng của sidebar */
+        width: 180px;
+        padding: 15px;
+    }
+
+    .search-container {
+        gap: 5px;
+    }
+
+    #search-input {
+        font-size: 0.9em;
+    }
+
+    #search-btn {
+        font-size: 0.9em;
     }
 
     .footer-container {
-        flex-direction: row; /* Giữ các mục trong footer theo hàng ngang */
-        justify-content: space-between; /* Giãn các mục trong footer */
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    header {
+        padding: 5px 0;
     }
 
-    .footer-left, .footer-right {
-        width: 45%; /* Điều chỉnh chiều rộng của các mục trong footer */
+    h1 {
+        font-size: 1.5em;
     }
-    
-    /* Điều chỉnh các phần tử khác nếu cần */
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .sidebar {
+        width: 150px;
+        padding: 10px;
+    }
+
+    .search-container {
+        gap: 5px;
+    }
+
+    #search-input, #search-btn {
+        font-size: 0.8em;
+    }
+
+    .footer-container {
+        padding: 0 5px;
+    }
 }
